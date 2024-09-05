@@ -30,11 +30,8 @@ ifeq ($(BOARD_USE_CODEC2_HIDL_1_2), true)
 CODEC2_HIDL_VERSION := 1.2
 endif
 
-$(warning #### [CODEC2] HIDL VERSION = $(CODEC2_HIDL_VERSION))
-
 ifneq ($(BOARD_SUPPORT_FLEXIBLE_P010), false)
 EXYNOS_GLOBAL_CFLAGS += -DUSE_FLEXIBLE_P010
-$(info #### [CODEC2] SUPPORTS FLEXIBLE FORMAT)
 endif
 
 ifeq ($(BOARD_USE_CSC_FILTER), true)
@@ -1238,7 +1235,6 @@ endif
 ifneq ($(BOARD_USE_DEFAULT_SERVICE), true)
 include $(EXYNOS_CODEC2_TOP)/services/Android.mk
 
-$(warning #### [CODEC2] SDK VERSION = $(PLATFORM_SDK_VERSION))
 ifeq ($(shell expr $(PLATFORM_SDK_VERSION) \> 31), 1)
 include $(EXYNOS_CODEC2_TOP)/plugin/Android.mk
 endif
